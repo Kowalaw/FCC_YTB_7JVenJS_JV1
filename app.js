@@ -5,6 +5,10 @@ let bouton = document.querySelectorAll('button')
 let boutonCliqué
 let choixComputeur
 let résultat
+let afficherScoreDuJoueur = document.getElementById('scoreJoueur')
+let scoreDuJoueur = 0
+let afficherScoreOrdi = document.getElementById('scoreOrdi')
+let scoreOrdi = 0
 
 bouton.forEach (bouton => bouton.addEventListener("click",(e)=>{
     boutonCliqué=e.target.id
@@ -30,24 +34,32 @@ function choixOrdi(){
 function funcRésultat(){
     if(boutonCliqué==="Papier" && choixComputeur==="Caillou"){
         résultat ='Gagner'
+        scoreDuJoueur ++
     }
     if(boutonCliqué==="Papier" && choixComputeur==="Ciseaux"){
         résultat = 'Perdu'
+        scoreOrdi ++
     }
     if(boutonCliqué==="Caillou" && choixComputeur==="Papier"){
         résultat = 'Perdu'
+        scoreOrdi ++
     }
     if(boutonCliqué==="Caillou" && choixComputeur==="Ciseaux"){
         résultat ='Gagner'
+        scoreDuJoueur ++
     }
     if(boutonCliqué==="Ciseaux" && choixComputeur==="Caillou"){
         résultat = 'Perdu'
+        scoreOrdi ++
     }
     if(boutonCliqué==="Ciseaux" && choixComputeur==="Papier"){
         résultat ='Gagner'
+        scoreDuJoueur ++
     }
     if(boutonCliqué===choixComputeur){
         résultat='Nul'
     }
     afficherRésultat.innerHTML = résultat
+    afficherScoreDuJoueur.innerHTML = scoreDuJoueur
+    afficherScoreOrdi.innerHTML = scoreOrdi
 }
